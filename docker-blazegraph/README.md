@@ -12,8 +12,11 @@ docker build -t blazecat .
 docker run -p $HOSTPORT:$CONTAINERPORT --name <container_name> -i -t <image_name>
 docker run -p 8081:8081 --name blaze1 -i -t blazecat
 ```
-Detach using <C-P> <C-Q>  
-Attach with shell using:  
+Detach using:
+```
+C-P C-Q
+```
+Attach to new shell using:  
 ```
 docker exec -it <container_name> bash
 ```

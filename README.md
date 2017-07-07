@@ -38,9 +38,9 @@ exit
 sudo -u tomcat7 -E -H bash -c "/usr/local/fedora/server/bin/fedora-rebuild.sh"
 ```
 1. Rebuild the Resource Index 
- - Had to ^C (SIGINT) after it reports Finished.
+ - Had to `^C` (SIGINT) after it reports Finished.
 2. Run again and select "Rebuild SQL database"
- - Had to ^C (SIGINT) after it reports Finished.
+ - Had to `^C` (SIGINT) after it reports Finished.
 3. (Optionally) Check pidGen table again and make sure it matches the count prior to rebuild.
 4. Start fedora `sudo service tomcat7 start`
 5. Visit http://localhost:8080/admin/islandora/configure

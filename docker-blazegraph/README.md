@@ -10,7 +10,7 @@ docker build -t blazecat .
 --name is optional, else get container id using `docker ps`
 ```
 docker run -p $HOSTPORT:$CONTAINERPORT --name <container_name> -i -t <image_name>
-docker run -p 8081:8081 --name blaze1 -i -t blazecat
+docker run -p 8081:8080 --name blaze1 -i -t blazecat
 ```
 Detach using:
 ```

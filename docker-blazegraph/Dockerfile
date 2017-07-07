@@ -1,19 +1,21 @@
-# 
 FROM tomcat:7.0.79-jre8
 
-# Install bash_profile for blazegraph user (currently root)
-RUN mkdir -p /var/bigdata
+RUN \
+	mkdir -p /var/bigdata
+	mkdir -p /var/bigdata/logs
+	mkdir -p /etc/bigdata
+	ln -sfv /usr/local/tomcat /usr/share/tomcat-blzg
 
-ADD .bash_profile /var/bigdata
-ADD install_blazegraph.sh /root
+COPY .bash_profile /var/bigdata
+COPY blazegraph_conf/RWStore.properties /etc/bigdata/
+COPY blazegraph_conf/log4j.properties	/etc/bigdata/
 
 RUN \
-	apt-get update && apt-get install -y \
-	git \
-	vim
+	curl -SL https://sourceforge.net/projects/bigdata/files/bigdata/2.1.0/blazegraph.war/download \
+	-O /usr/share/tomcat-blzg/webapps/blazegraph.war
 
-RUN \
-	chmod +x /root/install_blazegraph.sh && /root/install_blazegraph.sh
+ENTRYPOINT ["/bin/bash", "-c", ". /var/bigdata/.bash_profile; /usr/share/tomcat-blzg/bin/catalina.sh start"]
+
 
 
 

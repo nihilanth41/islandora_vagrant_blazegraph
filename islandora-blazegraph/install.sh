@@ -25,7 +25,7 @@ sudo -u tomcat7 cat << EOF > "/var/lib/tomcat7/conf/Catalina/localhost/fedora.xm
 </Context>
 EOF
 
-cd ~/islandora-blazegraph
+cd ~/islandora_vagrant_blazegraph/islandora-blazegraph
 sudo -u tomcat7 cp -v -- remote-blazegraph.xml /usr/local/fedora/server/config/spring/
 sudo chown -R tomcat7:tomcat7 /usr/local/fedora
 

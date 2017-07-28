@@ -6,7 +6,9 @@ set -euf -o pipefail
 cd
 git clone https://github.com/discoverygarden/trippi-sail.git
 cd trippi-sail
-mvn package -Dfedora.version=3.8.1
+
+# Must pass -DremoteBlazegraph or -DskipTests for tests to function properly
+mvn package -Dfedora.version=3.8.1 -DremoteBlazegraph=http://localhost:8081/blazegraph
 cd trippi-sail-blazegraph-remote/target
 tar xvf trippi-sail-blazegraph-remote-0.0.1-SNAPSHOT-bin.tar.gz
 sudo mv trippi-sail-blazegraph-remote-0.0.1-SNAPSHOT /opt/trippi-sail

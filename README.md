@@ -12,7 +12,7 @@ git clone https://vcs.missouri.edu/zrrm74/islandora_vagrant_blazegraph.git
 ```
 cd islandora_vagrant_blazegraph/docker-blazegraph
 sudo docker build -t blazecat . 
-sudo docker run -d -p 8081:8080 --name blaze1 -i -t blazecat
+sudo docker run -d --restart=always -p 8081:8080 --name blaze1 -i -t blazecat
 ```
 Confirm blazegraph is installed and running by visiting http://localhost:8081/blazegraph   
 

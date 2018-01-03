@@ -34,7 +34,12 @@ sudo chown -R tomcat7:tomcat7 /usr/local/fedora
 sudo -u tomcat7 cp -v -- fedora.fcfg /usr/local/fedora/server/config/.
 sudo -u tomcat7 cp -v -- env-server.sh /usr/local/fedora/server/bin/env-server.sh
 
-#sudo -u tomcat7 -H bash -c "/usr/local/fedora/server/bin/fedora-rebuild.sh"
+sudo apt-get -y install expect 
+cd /vagrant/islandora_vagrant_blazegraph/islandora-blazegraph/ 
+sudo bash -c "FEDORA_HOME=/usr/local/fedora CATALINA_HOME=/var/lib/tomcat7 ./rebuild_expect.sh"
+
+sleep 1 
+sudo service tomcat7 start
 
 exit 0
 }
